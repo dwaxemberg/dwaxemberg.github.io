@@ -1,11 +1,7 @@
 ﻿<?php
 
-// Replace this with your own email address
-$siteOwnersEmail = 'diego.waxemberg@gmail.com';
-
-
 if($_POST) {
-
+    $siteOwnersEmail = 'diego.waxemberg@gmail.com';
    $name = trim(stripslashes($_POST['contactName']));
    $email = trim(stripslashes($_POST['contactEmail']));
    $subject = trim(stripslashes($_POST['contactSubject']));
@@ -29,7 +25,7 @@ if($_POST) {
 
    // Set Message
    $message .= "Email from: " . $name . "<br />";
-	$message .= "Email address: " . $email . "<br />";
+    $message .= "Email address: " . $email . "<br />";
    $message .= "Message: <br />";
    $message .= $contact_message;
    $message .= "<br /> ----- <br /> This email was sent from your site's contact form. <br />";
@@ -49,8 +45,8 @@ if($_POST) {
       ini_set("sendmail_from", $siteOwnersEmail); // for windows server
       $mail = mail($siteOwnersEmail, $subject, $message, $headers);
 
-		if ($mail) { echo "OK"; }
-      else { echo "Something went wrong. Please try again."; }
+	   if ($mail) { print "OK"; }
+      else { print "Something went wrong. Please try again."; }
 		
 	} # end if - no validation error
 
@@ -60,10 +56,9 @@ if($_POST) {
 		$response .= (isset($error['email'])) ? $error['email'] . "<br /> \n" : null;
 		$response .= (isset($error['message'])) ? $error['message'] . "<br />" : null;
 		
-		echo $response;
+		print $response;
 
 	} # end if - there was a validation error
 
 }
-
 ?>
