@@ -22,7 +22,7 @@ if($_POST) {
    // Subject
 	if ($subject == '') { $subject = "Contact Form Submission"; }
 
-
+/*
    // Set Message
    $message .= "Email from: " . $name . "<br />";
     $message .= "Email address: " . $email . "<br />";
@@ -37,7 +37,7 @@ if($_POST) {
 	$headers = "From: " . $from . "\r\n";
 	$headers .= "Reply-To: ". $email . "\r\n";
  	$headers .= "MIME-Version: 1.0\r\n";
-	$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+	$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";*/
 
     print "OK";
    /*if (!$error) {
