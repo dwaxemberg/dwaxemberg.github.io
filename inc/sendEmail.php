@@ -39,8 +39,8 @@ if($_POST) {
  	$headers .= "MIME-Version: 1.0\r\n";
 	$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
-
-   if (!$error) {
+    print "OK";
+   /*if (!$error) {
 
       //ini_set("sendmail_from", $siteOwnersEmail); // for windows server
       $mail = "OK";//mail($siteOwnersEmail, $subject, $message, $headers);
@@ -59,6 +59,6 @@ if($_POST) {
 		print $response;
 
 	} # end if - there was a validation error
-
+    */
 }
 ?>
