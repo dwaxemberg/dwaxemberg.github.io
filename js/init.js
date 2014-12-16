@@ -149,7 +149,11 @@
       var data = 'contactName=' + contactName + '&contactEmail=' + contactEmail +
                '&contactSubject=' + contactSubject + '&contactMessage=' + contactMessage;
 
-      $.ajax({
+      $('#image-loader').fadeOut();
+               $('#message-warning').hide();
+               $('#contactForm').fadeOut();
+               $('#message-success').fadeIn();   
+      /*$.ajax({
 
 	      type: "post",
 	      url: "inc/sendEmail.php",
@@ -172,7 +176,7 @@
 
 	      }
 
-      });
+      });*/
       return false;
    });
 
