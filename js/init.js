@@ -149,10 +149,31 @@
       var data = 'contactName=' + contactName + '&contactEmail=' + contactEmail +
                '&contactSubject=' + contactSubject + '&contactMessage=' + contactMessage;
 
-      $('#image-loader').fadeOut();
+      var error = false;
+      var errorMsg = "";
+      if (contactName == "") {
+        error = true;
+        errorMsg = "Please specify a name";
+      } else if (!contactEmail.match('^[a-z0-9&\'\.\-_\+]+@[a-z0-9\-]+\.([a-z0-9\-]+\.)*[a-z]{2,}')) {
+        error = true;
+        errorMsg = "Please enter a valid email address";
+      } else if (contactMessage == "") {
+        error = true;
+        errorMsg = "Please enter a message";
+      }
+      if (error) {
+        $('#image-loader').fadeOut();
+        $('#message-warning').html(errorMsg);
+        $('#message-warning').fadeIn();
+      } else {
+        $('#message-warning').fadeOut();
+        setTimeout(function(){$('#image-loader').fadeOut();
                $('#message-warning').hide();
                $('#contactForm').fadeOut();
-               $('#message-success').fadeIn();   
+               $('#message-success').fadeIn();}, 2000);
+      } 
+
+         
       /*$.ajax({
 
 	      type: "post",
